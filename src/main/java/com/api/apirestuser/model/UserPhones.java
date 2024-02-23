@@ -30,5 +30,6 @@ public class UserPhones {
         private String citycode;
 
         private String countrycode;
+
     }
 }
