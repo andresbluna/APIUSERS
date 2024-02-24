@@ -31,5 +31,7 @@ public class UserPhones {
 
         private String countrycode;
 
+        private String countrycode2;
+
     }
 }
