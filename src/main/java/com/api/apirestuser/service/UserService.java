@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Component
@@ -17,6 +18,10 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserModel createUser(UserModel userModel){
+        userModel.setId(UUID.randomUUID().toString());
+
+
+        
         return userRepository.save(userModel);
 
     }

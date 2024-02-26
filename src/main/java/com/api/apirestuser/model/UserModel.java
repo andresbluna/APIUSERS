@@ -28,7 +28,7 @@ public class UserModel {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
-    private List<UserPhones.Phone> phones;
+    private List<UserPhones> phones;
 
 
 }

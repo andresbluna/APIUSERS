@@ -7,18 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "phones")
 public class UserPhones {
-    @Id
-    private Long id;
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Entity
-    @Table(name = "phones")
-    public static class Phone {
 
         @JsonIgnore
         @Id
@@ -29,9 +24,6 @@ public class UserPhones {
 
         private String citycode;
 
-        private String countrycode;
-
-        private String countrycode2;
+        public String countrycode;
 
     }
-}
