@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -26,4 +28,7 @@ public class ResponseModel {
     private String last_login;
     private String isactive;
 
+    public ResponseModel(Map<String, String> errorResponse, HttpStatus httpStatus) {
+
+    }
 }

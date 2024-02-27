@@ -7,28 +7,36 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @Transactional
     public UserModel createUser(UserModel userModel) {
-        if (userRepository.existsByEmail(userModel.getEmail())) {
-            throw new EntityExistsException("El correo electrónico ya está registrado.");
-        }
-        userModel.updateTimestamps();
-        userModel.generateToken();
+        userModel.setCreated(LocalDateTime.now().toString());
+        userModel.setModified(LocalDateTime.now().toString());
+        userModel.setToken(generateToken());
+        userModel.setLast_login(LocalDateTime.now().toString());
         return userRepository.save(userModel);
+    }
+
+
+    private String generateToken() {
+        // Implementa la lógica para generar un token único
+        return UUID.randomUUID().toString();
     }
 
     public UserModel getUserById(String id) {

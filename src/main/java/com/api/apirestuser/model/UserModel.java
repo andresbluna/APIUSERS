@@ -1,5 +1,6 @@
 package com.api.apirestuser.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,14 +39,21 @@ public class UserModel {
     private String last_login;
     private boolean isactive;
 
-    public void updateTimestamps() {
-        this.created = LocalDateTime.now().toString();
-        this.modified = LocalDateTime.now().toString();
-        this.last_login = LocalDateTime.now().toString();
+    @PrePersist
+    public void onPrePersist() {
+        created = LocalDateTime.now().toString();
+        modified = created;
+        token = generateToken();
+        last_login = created;
     }
 
-    public void generateToken() {
-        this.token = UUID.randomUUID().toString();
+    @PreUpdate
+    public void onPreUpdate() {
+        modified = LocalDateTime.now().toString();
+    }
+
+    private String generateToken() {
+        return UUID.randomUUID().toString();
     }
     public String getIsactive() {
         return isactive ? "no" : "si";
