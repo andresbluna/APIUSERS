@@ -1,0 +1,5 @@
+Script para ver la tabla con los user y phones en H2
+
+SELECT users.*, phones.*
+FROM users
+JOIN phones ON users.ID = phones.USER_ID;
