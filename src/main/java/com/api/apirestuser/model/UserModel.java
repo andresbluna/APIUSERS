@@ -31,23 +31,27 @@ public class UserModel {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private List<UserPhones> phones;
-
-    // Campos adicionales para la respuesta
     private String created;
     private String modified;
     private String token;
     private String last_login;
-    private String isactive;
+    private boolean isactive;
 
-    // Método para actualizar la fecha de creación y modificación
     public void updateTimestamps() {
         this.created = LocalDateTime.now().toString();
         this.modified = LocalDateTime.now().toString();
+        this.last_login = LocalDateTime.now().toString();
     }
 
-    // Método para generar un token
     public void generateToken() {
         this.token = UUID.randomUUID().toString();
+    }
+    public String getIsactive() {
+        return isactive ? "no" : "si";
+    }
+
+    public void setIsactive(String isactive) {
+        this.isactive = "no".equalsIgnoreCase(isactive);
     }
 
 }

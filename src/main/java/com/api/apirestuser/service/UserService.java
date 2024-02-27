@@ -20,7 +20,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserModel saveUser(UserModel userModel) {
+    public UserModel createUser(UserModel userModel) {
         userModel.updateTimestamps();
         userModel.generateToken();
         return userRepository.save(userModel);
@@ -29,7 +29,7 @@ public class UserService {
     public UserModel getUserById(String id) {
         Optional<UserModel> optionalUser = userRepository.findById(id);
         return optionalUser.orElseThrow(() -> new
-                UserException("User not found with id: " + id));
+                UserException("User with id " + id + "not found"));
     }
 
     public List<UserModel> getAllUsers() {
