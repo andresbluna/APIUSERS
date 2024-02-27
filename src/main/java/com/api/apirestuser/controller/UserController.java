@@ -1,11 +1,8 @@
 package com.api.apirestuser.controller;
 
-import com.api.apirestuser.dto.ResponseModel;
 import com.api.apirestuser.model.UserModel;
 import com.api.apirestuser.repository.UserRepository;
 import com.api.apirestuser.service.UserService;
-import com.api.apirestuser.utils.ResponseConverter;
-import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +20,6 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private ResponseConverter converter;
 
     @PostMapping
     public ResponseEntity<?> registerUser(@RequestBody UserModel userModel) {
