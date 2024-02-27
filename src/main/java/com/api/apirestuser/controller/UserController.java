@@ -1,5 +1,6 @@
 package com.api.apirestuser.controller;
 
+import com.api.apirestuser.dto.ResponseModel;
 import com.api.apirestuser.model.UserModel;
 import com.api.apirestuser.repository.UserRepository;
 import com.api.apirestuser.service.UserService;
@@ -17,13 +18,11 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    //POST para persistir el usuario
     @PostMapping
-    public UserModel createUser(@RequestBody UserModel userModel) {
-        UserModel savedUser = userRepository.save(userModel);
-        return savedUser;
+    public ResponseModel createUser(@RequestBody UserModel userModel) {
+        UserModel savedUser = userService.saveUser(userModel);
+        return convertToResponseModel(savedUser);
     }
-    //GET para recuperar la lista de usuarios
     @GetMapping
     public List<UserModel> getAllUsers(){
         return userService.getAllUsers();

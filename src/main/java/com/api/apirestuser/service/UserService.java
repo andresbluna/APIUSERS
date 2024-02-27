@@ -2,42 +2,41 @@ package com.api.apirestuser.service;
 
 import com.api.apirestuser.model.UserModel;
 import com.api.apirestuser.repository.UserRepository;
+import com.api.apirestuser.utils.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@Component
 public class UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    public UserModel createUser(UserModel userModel){
-        userModel.setId(UUID.randomUUID().toString());
-
-
-        
+    public UserModel saveUser(UserModel userModel) {
+        userModel.updateTimestamps();
+        userModel.generateToken();
         return userRepository.save(userModel);
-
     }
 
-    public UserModel getUserById(String id){
+    public UserModel getUserById(String id) {
         Optional<UserModel> optionalUser = userRepository.findById(id);
-        return optionalUser.get();
-
+        return optionalUser.orElseThrow(() -> new
+                UserException("User not found with id: " + id));
     }
 
-    public List<UserModel> getAllUsers(){
+    public List<UserModel> getAllUsers() {
         return userRepository.findAll();
-
     }
 
-    public void deleteUser(String id){
+    public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
 

@@ -26,4 +26,13 @@ public class UserPhones {
 
         public String countrycode;
 
+        @ManyToOne
+        @JoinColumn(name = "user_id")
+        private UserModel user;
+        private String created;
+        private String modified;
+        private String token;
+        private String last_login;
+        private String isactive;
+
     }
