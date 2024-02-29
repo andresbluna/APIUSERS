@@ -2,18 +2,17 @@ package com.api.apirestuser.service;
 
 import com.api.apirestuser.model.UserModel;
 import com.api.apirestuser.repository.UserRepository;
-import com.api.apirestuser.utils.ErrorMsg;
 import com.api.apirestuser.utils.ErrorResponse;
 import com.api.apirestuser.utils.UserException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.validation.ValidationException;
 import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.Date;

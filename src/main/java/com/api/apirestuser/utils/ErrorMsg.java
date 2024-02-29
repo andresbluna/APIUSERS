@@ -14,6 +14,8 @@ public class ErrorMsg {
 
     public static final String ERROR06 = "El password ingresado no es válido";
 
+    public static final String ERROR07 = "El Token ingresado no es válido";
+
     public static String getErrorsMsg(String errorCode, String details) {
         return String.format("{\"%s\": \"%s\"}", errorCode, details);
     }
@@ -40,6 +42,10 @@ public class ErrorMsg {
 
     public static String error06() {
         return getErrorsMsg("error06", ERROR06);
+    }
+
+    public static String error07() {
+        return getErrorsMsg("error07", ERROR07);
     }
 
 }
