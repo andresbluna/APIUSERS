@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 @Getter
@@ -19,9 +19,7 @@ public class ErrorResponse {
     private String errorMessage;
 
     public Map<String, String> toMap() {
-        Map<String, String> errorMap = new HashMap<>();
-        errorMap.put(this.errorCode, this.errorMessage);
-        return errorMap;
+        return Collections.singletonMap(this.errorCode, this.errorMessage);
     }
 
 }

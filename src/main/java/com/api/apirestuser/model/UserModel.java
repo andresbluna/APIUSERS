@@ -26,6 +26,8 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    private String username;
+
     private String name;
 
     @Column(unique = true)
@@ -46,7 +48,6 @@ public class UserModel {
     public void onPrePersist() {
         created = LocalDateTime.now().toString();
         modified = created;
-        token = generateToken();
         last_login = created;
     }
 
@@ -55,9 +56,6 @@ public class UserModel {
         modified = LocalDateTime.now().toString();
     }
 
-    private String generateToken() {
-        return UUID.randomUUID().toString();
-    }
     public String getIsactive() {
         return isactive ? "no" : "si";
     }
