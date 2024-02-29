@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "b54acafb-7328-423a-858c-7aa0acebe8ef",
+		"name": "APIREST for BCI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32346840"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/user/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzA5MjE4NTI2LCJleHAiOjE3MDkzMDQ5MjZ9.SToKgJ9ThXu6FvMJ4rkaWAweOpfE1CwWR98fIGS_ezDScQZVk_Vm454M1v9zmuSgEcCDia9ps0lCeLaX5JFXfA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan Rodriguez Peleagato\",\r\n    \"email\": \"eeeeeees@fashsases.com\",\r\n    \"password\": \"hunter2\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"1234567\",\r\n            \"citycode\": \"1\",\r\n            \"countrycode\": \"60\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solicitud token jwt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user\",\r\n  \"password\": \"001bciusertoken\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:puerto/api/auth/login\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "puerto",
+					"path": [
+						"api",
+						"auth",
+						"login\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/user/user Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "N2diCJ1hcBqQgUcMXqfWHFuFvqCjc18O",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "FJPUzcmdcKm8np1pSWjnVjdgjeEA42ys",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/users/f8740569-e0b8-4d06-9e80-322261b5c22c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"f8740569-e0b8-4d06-9e80-322261b5c22c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
