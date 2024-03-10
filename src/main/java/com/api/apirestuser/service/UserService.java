@@ -37,7 +37,8 @@ public class UserService {
     public ResponseEntity<?> registerUser(UserModel userModel) {
         try {
             if (!validMail(userModel.getEmail())) {
-                ErrorResponse errorResponse = new ErrorResponse("error02", String.format("El correo electrónico %s no es válido", userModel.getEmail()));
+                ErrorResponse errorResponse = new ErrorResponse("error02",
+                        String.format("El correo electrónico %s no es válido", userModel.getEmail()));
                 return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.BAD_REQUEST);
             }
             UserModel savedUser = createUser(userModel);
@@ -47,7 +48,8 @@ public class UserService {
             ErrorResponse errorResponse = new ErrorResponse("error01", errorMessage);
             return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            ErrorResponse errorResponse = new ErrorResponse("error01", String.format("El correo electrónico %s ya esta registrado", userModel.getEmail()));
+            ErrorResponse errorResponse = new ErrorResponse("error01", String.format
+                    ("El correo electrónico %s ya esta registrado", userModel.getEmail()));
             return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -94,6 +96,11 @@ public class UserService {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_" +
                 "+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         return email.matches(emailRegex);
+    }
+
+    public boolean regexMail (String email){
+        return regexMail();
+
     }
 
 
