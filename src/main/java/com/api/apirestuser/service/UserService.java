@@ -98,10 +98,10 @@ public class UserService {
         return email.matches(emailRegex);
     }
 
-    public boolean regexMail (String email){
+    /*public boolean regexMail (String email){
         return regexMail();
 
-    }
+    }*/
 
 
 
