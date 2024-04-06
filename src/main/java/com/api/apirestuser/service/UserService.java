@@ -7,6 +7,7 @@ import com.api.apirestuser.utils.UserException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-
-
     public ResponseEntity<?> registerUser(UserModel userModel) {
         try {
             if (!validMail(userModel.getEmail())) {
@@ -41,6 +40,7 @@ public class UserService {
                         String.format("El correo electrónico %s no es válido", userModel.getEmail()));
                 return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.BAD_REQUEST);
             }
+
             UserModel savedUser = createUser(userModel);
             return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
         } catch (ValidationException e) {

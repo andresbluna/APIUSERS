@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Key;
 import java.util.Date;
 
-@RestController
+/*@RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
     private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     @PostMapping("/login")
-    public ResponseEntity<TokenResponse> login(@RequestBody UserCredentials credentials) {
+    /*public ResponseEntity<TokenResponse> login(@RequestBody UserCredentials credentials) {
 
         if ("user".equals(credentials.getUsername()) && "001bciusertoken".equals(credentials.getPassword())) {
 
@@ -54,4 +54,4 @@ public class AuthController {
     }
 
 
-}
+}*/

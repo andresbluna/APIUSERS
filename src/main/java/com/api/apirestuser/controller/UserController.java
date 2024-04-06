@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("api/users")
 public class UserController {
 
+    //CRUD = CREATE READ UPDATE DELETE
+
     @Autowired
     private UserService userService;
     @Autowired
