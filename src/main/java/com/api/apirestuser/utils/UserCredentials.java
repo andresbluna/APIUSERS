@@ -1,6 +1,6 @@
 package com.api.apirestuser.utils;
 
-public class UserCredentials {
+public class UserCredentials {/*
 
 
         private String username;
@@ -29,7 +29,7 @@ public class UserCredentials {
 
         public void setPassword(String password) {
             this.password = password;
-        }
+        }*/
 
 
     }
