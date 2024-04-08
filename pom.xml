@@ -100,7 +100,7 @@
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-common</artifactId>
+            <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.8.0</version>
         </dependency>
         <dependency>
