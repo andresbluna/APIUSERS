@@ -31,3 +31,4 @@ components:
         email:
           type: string
           format: email
+          type format: behavior
