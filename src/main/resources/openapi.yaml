@@ -38,3 +38,5 @@ paths:
                         description: |
                           Possible values for a board square.
                           `.` means empty square.
+                          
+                          

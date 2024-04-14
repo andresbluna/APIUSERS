@@ -16,6 +16,7 @@ import lombok.Setter;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 @Entity
 @Table(name = "users")
@@ -35,6 +36,12 @@ public class UserModel {
     private String username;
 
     private String name;
+
+    private String surname;
+
+    private String direction;
+
+    private String location;
 
     @Column(unique = true)
     private String email;
