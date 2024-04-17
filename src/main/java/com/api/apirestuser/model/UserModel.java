@@ -55,6 +55,7 @@ public class UserModel {
     private String modified;
     private String token;
     private String last_login;
+    private String deleted_history;
     private boolean isactive;
 
     @PrePersist
