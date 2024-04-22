@@ -6,7 +6,7 @@ public class SampleTest {
 
     public static void main(String[] args) {
 
-        int n = 10;
+        int n = 100;
 
         System.out.println("Fibonacci Secuence for the first" + n + "numbers");
 

@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Nodes.collect;
 
 public class ArrayNumbersLetters {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
 
         List<String> list = Arrays.asList("b","c","a","d", "1", "4", "3", "2" );
@@ -33,6 +32,6 @@ public class ArrayNumbersLetters {
         }else {
             throw new IllegalArgumentException("Error : " + s + "Bad Pattern");
         }
-    }
+    }*/
 
 }

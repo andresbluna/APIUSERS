@@ -1,7 +1,6 @@
 package com.api.apirestuser.controller;
 
 import io.jsonwebtoken.io.IOException;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
