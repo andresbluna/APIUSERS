@@ -36,20 +36,27 @@ public class UserService {
         try {
             if (!validMail(userModel.getEmail())) {
                 ErrorResponse errorResponse = new ErrorResponse("error02",
-                        String.format("El correo electrónico %s no es válido", userModel.getEmail()));
-                return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.BAD_REQUEST);
+                        String.format("El correo electrónico %s no es válido",
+                                userModel.getEmail()));
+                return new ResponseEntity<>
+                        (errorResponse.toMap(), HttpStatus.BAD_REQUEST);
             }
 
             UserModel savedUser = createUser(userModel);
             return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
         } catch (ValidationException e) {
             String errorMessage = e.getMessage();
-            ErrorResponse errorResponse = new ErrorResponse("error01", errorMessage);
-            return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.BAD_REQUEST);
+            ErrorResponse errorResponse = new ErrorResponse
+                    ("error01", errorMessage);
+            return new ResponseEntity<>
+                    (errorResponse.toMap(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            ErrorResponse errorResponse = new ErrorResponse("error01", String.format
-                    ("El correo electrónico %s ya esta registrado", userModel.getEmail()));
-            return new ResponseEntity<>(errorResponse.toMap(), HttpStatus.INTERNAL_SERVER_ERROR);
+            ErrorResponse errorResponse = new ErrorResponse
+                    ("error01", String.format
+                    ("El correo electrónico %s ya esta registrado",
+                            userModel.getEmail()));
+            return new ResponseEntity<>
+                    (errorResponse.toMap(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
