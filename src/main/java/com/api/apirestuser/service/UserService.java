@@ -56,7 +56,9 @@ public class UserService {
                     ("El correo electrónico %s ya esta registrado",
                             userModel.getEmail()));
             return new ResponseEntity<>
-                    (errorResponse.toMap(), HttpStatus.INTERNAL_SERVER_ERROR);
+                    (errorResponse.toMap(),
+
+                            HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

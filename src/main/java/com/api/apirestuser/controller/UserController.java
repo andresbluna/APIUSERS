@@ -3,6 +3,7 @@ package com.api.apirestuser.controller;
 import com.api.apirestuser.model.UserModel;
 import com.api.apirestuser.repository.UserRepository;
 import com.api.apirestuser.service.UserService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+@OpenAPIDefinition
 @RestController
 @RequestMapping("api/users")
 public class UserController {
